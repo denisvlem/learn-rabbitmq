@@ -1,0 +1,9 @@
+server:
+  port: 8081
+
+spring:
+  ampq:
+    host: localhost
+  rabbitmq:
+    host: localhost
+    port: 5672

@@ -20,6 +20,6 @@ public class MessageService {
     @SneakyThrows
     public void send(MessageRequestDto requestDto) {
         String content = objectMapper.writeValueAsString(requestDto);
-        stringSender.send(content, requestDto.subject());
+        stringSender.send(content, requestDto.getSubject());
     }
 }

@@ -1,4 +1,4 @@
-package com.denisvlem.learnrabbitmq.dto;
+package com.denisvlem.learnrabbitmqreceiver.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
