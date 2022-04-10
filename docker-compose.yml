@@ -9,10 +9,14 @@ services:
     build: .
     ports:
       - "8080:8080"
+    depends_on:
+      - rabbitmq
   receiver:
     build: ./learn-rabbitmq-receiver/
     ports:
       - "8081:8081"
+    depends_on:
+      - sender
   postgres:
     image: postgres
     restart: always

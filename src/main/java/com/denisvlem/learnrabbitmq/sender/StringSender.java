@@ -24,6 +24,7 @@ public class StringSender {
         } catch (AmqpException e) {
             log.warn("Exception thrown while sending a message with subject [{}]", subject);
             log.warn("Exception: ", e);
+            throw e;
         }
     }
 }
