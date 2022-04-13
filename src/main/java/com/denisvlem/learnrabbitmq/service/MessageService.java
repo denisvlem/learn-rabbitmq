@@ -22,4 +22,9 @@ public class MessageService {
         String content = objectMapper.writeValueAsString(requestDto);
         stringSender.send(content, requestDto.getSubject());
     }
+
+    public void emailSentConfirm() {
+        log.info("The message is delivered");
+        //todo add some logic, maybe add data to database
+    }
 }

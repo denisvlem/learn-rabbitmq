@@ -1,16 +1,13 @@
-server:
-  port: 8081
-
 spring:
   ampq:
-    host: rabbitmq
+    host: localhost
   rabbitmq:
-    host: rabbitmq
+    host: localhost
     port: 5672
 
 application:
   dependencies:
     sender:
       protocol: http
-      host: sender
-      port: 8081
+      host: localhost
+      port: ${wiremock.server.port}

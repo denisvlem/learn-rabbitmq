@@ -19,4 +19,9 @@ public class MessageController {
     public void doPostSendMessage(@RequestBody MessageRequestDto request) {
         messageService.send(request);
     }
+
+    @PostMapping("/email/sent/confirm")
+    public void doPostEmailSentConfirm() {
+        messageService.emailSentConfirm();
+    }
 }

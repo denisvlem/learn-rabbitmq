@@ -1,5 +1,7 @@
-package com.denisvlem.learnrabbitmq;
+package com.denisvlem.learnrabbitmqreceiver;
 
+import com.denisvlem.learnrabbitmqreceiver.service.MessageService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import io.restassured.RestAssured;
@@ -8,6 +10,7 @@ import io.restassured.http.ContentType;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.context.ApplicationContextInitializer;
@@ -22,7 +25,7 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMoc
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ExtendWith(SpringExtension.class)
-@ActiveProfiles("dev")
+@ActiveProfiles("test")
 @ContextConfiguration(initializers = BaseItTest.WiremockInitializer.class)
 @Slf4j
 public abstract class BaseItTest {
@@ -48,6 +51,12 @@ public abstract class BaseItTest {
                 .setAccept(ContentType.JSON)
                 .build();
     }
+
+    @Autowired
+    protected MessageService messageService;
+
+    @Autowired
+    protected ObjectMapper objectMapper;
 
     public static class WiremockInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
         @Override
