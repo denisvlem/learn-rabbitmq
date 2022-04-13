@@ -2,8 +2,6 @@ server:
   port: 8081
 
 spring:
-  ampq:
-    host: rabbitmq
   rabbitmq:
     host: rabbitmq
     port: 5672

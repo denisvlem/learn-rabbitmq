@@ -1,6 +1,4 @@
 spring:
-  ampq:
-    host: localhost
   rabbitmq:
     host: localhost
     port: 5672
