@@ -21,3 +21,5 @@ cd "$CURRENT_DIR" || exit
 echo "Deploying docker image to k8s"
 # Create kubernetes deployment
 kubectl apply -f ./deployment.yaml
+
+kubectl apply -f ./service.yaml

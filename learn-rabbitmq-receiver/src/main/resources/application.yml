@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
 
 spring:
   rabbitmq:
@@ -10,8 +10,8 @@ application:
   dependencies:
     sender:
       protocol: http
-      host: sender
-      port: 8081
+      host: producer
+      port: 8080
 
 management:
   endpoint:
