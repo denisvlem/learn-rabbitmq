@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: receiver-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: receiver
+  template:
+    metadata:
+      labels:
+        name: receiver
+    spec:
+      containers:
+        - name: learn-rabbit-receiver-container
+          image: rabbit-receiver:0.1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+#          livenessProbe:
+#            httpGet:
+#              port: 8080
+#              path: /actuator/health/liveness
+#          readinessProbe:
+#            httpGet:
+#              port: 8080
+#              path: /actuator/health/readiness

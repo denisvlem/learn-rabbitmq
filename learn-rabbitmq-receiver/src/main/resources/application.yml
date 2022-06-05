@@ -12,3 +12,14 @@ application:
       protocol: http
       host: sender
       port: 8081
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  health:
+    livenessState:
+      enabled: true
+    readinessState:
+      enabled: true

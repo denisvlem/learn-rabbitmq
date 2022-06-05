@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: producer-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: producer
+  template:
+    metadata:
+      labels:
+        name: producer
+    spec:
+      containers:
+        - name: learn-rabbit-producer-container
+          image: rabbit-producer:0.1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+#          livenessProbe:
+#            httpGet:
+#              port: 8080
+#              path: /actuator/health/liveness
+#              initialDelaySeconds: 30
+#              periodSeconds: 10
+#          readinessProbe:
+#            httpGet:
+#              port: 8080
+#              path: /actuator/health/readiness
+#              initialDelaySeconds: 30
+#              periodSeconds: 10
